@@ -11,12 +11,14 @@ int number2=int.Parse(Console.ReadLine());
 if (number1>number2)
 {
     int max=number1;
+  
     Console.Write("max=");  
     Console.WriteLine(max);
 }
  else if (number2>number1)
  {
     int max=number2;
+   
     Console.Write("max=");  
     Console.WriteLine(max);
  }   
