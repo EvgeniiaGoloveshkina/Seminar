@@ -22,7 +22,7 @@ int[] InitArray()
 }
 void ReadArray(int [] arr)
 {
-     for (int i=0;i<arr.Length;i++)
+    for (int i=0;i<arr.Length;i++)
      {
         Console.Write($"{arr[i]},  ");      
      }
