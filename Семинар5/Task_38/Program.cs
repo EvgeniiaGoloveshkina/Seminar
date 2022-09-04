@@ -6,7 +6,7 @@ double[] GetArray(int size)
     double[] res = new double[size];
     for (int i = 0; i < size; i++)
     {
-        res[i] = new Random().NextDouble()*40-20;  //NextDouble() дает случайное вещественное число в диапазоне от 0 до 1
+        res[i] = new Random().NextDouble()*20-40;  //NextDouble() дает случайное вещественное число в диапазоне от 0 до 1
     }
     return res;
 }
@@ -24,8 +24,7 @@ double Diff(double[] myArray)
 }
 
 double[] myArray = GetArray(5);
-Console.WriteLine(String.Join(" ", myArray)); 
-Console.WriteLine();
+Console.WriteLine(string.Join(" ", myArray.Select(n => $"{n:F2}")));
 Console.WriteLine($"Разница между максимальным и минимальным элементами массива : {Diff(myArray):f2}");
 
 
