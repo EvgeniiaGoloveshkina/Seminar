@@ -19,4 +19,14 @@ int numb2 = Convert.ToInt32(Console.ReadLine());
 Console.Write("Введите число k2: ");
 int numk2 = Convert.ToInt32(Console.ReadLine());
 double[] Coord = FindCoord(numb1, numk1, numb2, numk2);
-Console.WriteLine($"Координаты точки пересечения прямых: ({Coord[0]:f2};{Coord[1]:f2})");
+if (numb1 == numb2 && numk1 ==  numk2)
+  {
+    Console.Write($"Прямые совпадают");
+  }
+  else if (numb1 == numb2 && numk1 !=  numk2) 
+  {
+    Console.Write($"Прямые параллельны");
+  }
+  else 
+Console.WriteLine($"Координаты точки пересечения прямых: ({Coord[0]:f1};{Coord[1]:f1})");
+
