@@ -41,8 +41,7 @@ double[] AverageColumns(int[,] array)
         }
         average[count] = average[count] / array.GetLength(0);
         average[count] = Math.Round(average[count], 1);
-        //average[counter] = Math.Round(average[counter] / arr.GetLength(0), 1);
-        count++;
+         count++;
     }
     return average;
 }
@@ -54,4 +53,4 @@ int[,] myArray = GetArray(rows, columns);
 Console.WriteLine("Исходный массив: ");
 PrintArray(myArray);
 double[] average = AverageColumns(myArray);
-Console.WriteLine($"Среднее арифметическое каждого столбца : {String.Join(";", average)}");
+Console.WriteLine($"Среднее арифметическое столбцов : {String.Join(";", average)}");
