@@ -50,7 +50,7 @@ int rows = int.Parse(Console.ReadLine());
 Console.WriteLine("Введите количество столбцов: ");
 int columns = int.Parse(Console.ReadLine());
 int[,] myArray = GetArray(rows, columns);
-Console.WriteLine("Исходный массив: ");
+Console.WriteLine("Массив: ");
 PrintArray(myArray);
 double[] average = AverageColumns(myArray);
 Console.WriteLine($"Среднее арифметическое столбцов : {String.Join(";", average)}");
