@@ -1,4 +1,5 @@
-﻿// Задача 50. Напишите программу, которая на вход принимает число и генерирует случайный двумерный массив, и возвращает индексы этого элемента или же указание, что такого элемента нет.
+﻿// Задача 50. Напишите программу, которая на вход принимает число и генерирует случайный двумерный массив, 
+// и возвращает индексы этого элемента или же указание, что такого элемента нет.
 // Например, задан массив:
 // 1 4 7 2
 // 5 9 2 3
@@ -25,7 +26,7 @@ void SearchIndex(int[,] result, int number)
         {
             if (result[i, j] == number)
             {
-                Console.Write($"Позиция числа {number}: [{i}, {j}] ");
+                Console.Write($"Индекс элемента {number}: [{i}, {j}] ");
                 return;
             };
         }
@@ -43,6 +44,8 @@ void PrintArray(int[,] array)
         Console.WriteLine();
     }
 }
+Console.WriteLine("Введите число: ");
+int number = int.Parse(Console.ReadLine());
 Console.WriteLine("Введите количество строк: ");
 int rows = int.Parse(Console.ReadLine());
 Console.WriteLine("Введите количество столбцов: ");
@@ -50,6 +53,4 @@ int columns = int.Parse(Console.ReadLine());
 int[,] myArray = GetArray(rows, columns);
 Console.WriteLine("Массив: ");
 PrintArray(myArray);
-Console.WriteLine("Введите число: ");
-int number = int.Parse(Console.ReadLine());
 SearchIndex(myArray, number);
