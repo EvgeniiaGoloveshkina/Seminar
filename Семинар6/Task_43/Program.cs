@@ -18,6 +18,7 @@ Console.Write("Введите число b2: ");
 int numb2 = Convert.ToInt32(Console.ReadLine());
 Console.Write("Введите число k2: ");
 int numk2 = Convert.ToInt32(Console.ReadLine());
+
 double[] Coord = FindCoord(numb1, numk1, numb2, numk2);
 if (numb1 == numb2 && numk1 ==  numk2)
   {
