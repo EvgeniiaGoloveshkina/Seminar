@@ -5,68 +5,55 @@
 // Результирующая матрица будет:
 // 18 20
 // 15 18
-void FillArray(int[,] firstMartrix, int[,] secondMartrix)
+int[,] GetArray(int row, int column)
 {
-    for (int i = 0; i < firstMartrix.GetLength(0); i++)
+    int[,] array = new int[row, column];
+    for (int i = 0; i < array.GetLength(0); i++)
     {
-        for (int j = 0; j < secondMartrix.GetLength(1); j++)
+        for (int j = 0; j < array.GetLength(1); j++)
         {
-            firstMartrix[i, j] = new Random().Next(1, 10);
+            array[i, j] = new Random().Next(0, 10);
         }
     }
-    for (int i = 0; i < secondMartrix.GetLength(0); i++)
-    {
-        for (int j = 0; j < secondMartrix.GetLength(1); j++)
-        {
-            secondMartrix[i, j] = new Random().Next(1, 10);
-        }
-    }
+    return array;
 }
 
-void PrintArray(int[,] firstMartrix, int[,] secondMartrix)
+void PrintArray(int[,] array)
 {
-    for (int i = 0; i < firstMartrix.GetLength(0); i++)
+    for (int i = 0; i < array.GetLength(0); i++)
     {
-        for (int j = 0; j < firstMartrix.GetLength(1); j++)
+        for (int j = 0; j < array.GetLength(1); j++)
         {
-            Console.Write($"{firstMartrix[i, j]} ");
+            Console.Write($"{array[i, j],3} ");
         }
         Console.WriteLine();
     }
     Console.WriteLine();
-    for (int i = 0; i < secondMartrix.GetLength(0); i++)
-    {
-        for (int j = 0; j < secondMartrix.GetLength(1); j++)
-        {
-            Console.Write($"{secondMartrix[i, j]} ");
-        }
-        Console.WriteLine();
-    }
 }
-void MultiplyMatrix(int[,] firstMartrix, int[,] secondMartrix, int[,] mult)
+
+int[,] GetMultArray(int[,] firstMartrix, int[,] secondMartrix)
 {
-    for (int i = 0; i < firstMartrix.GetLength(0); i++)
+    if (firstMartrix.GetLength(1) == secondMartrix.GetLength(0))
     {
-        for (int j = 0; j < firstMartrix.GetLength(1); j++)
+        int[,] matrixMult = new int[firstMartrix.GetLength(0), secondMartrix.GetLength(1)];
+
+        for (int k = 0; k < firstMartrix.GetLength(1); k++)
         {
-            int sum = 0;
-            for (int k = 0; k < secondMartrix.GetLength(1); k++)
+            for (int i = 0; i < firstMartrix.GetLength(0); i++)
             {
-                sum += firstMartrix[i, k] * secondMartrix[k, j];
-                mult[i, j] = sum;
+                for (int j = 0; j < secondMartrix.GetLength(1); j++)
+                {
+                    matrixMult[i, j] += firstMartrix[i, k] * secondMartrix[k, j];
+                }
             }
         }
+        return matrixMult;
     }
-}
-void PrintMultArray(int[,] mult)
-{
-    for (int i = 0; i < mult.GetLength(0); i++)
+    else
     {
-        for (int j = 0; j < mult.GetLength(1); j++)
-        {
-            Console.Write($"{mult[i, j]} ");
-        }
-        Console.WriteLine();
+        Console.WriteLine("Произведение матриц не определено");
+        int[,] matrixMult = new int[0, 0];
+        return matrixMult;
     }
 }
 Console.Write("Введите количество строк первой матрицы: ");
@@ -77,14 +64,12 @@ Console.Write("Введите количество строк второй ма�
 int row2 = int.Parse(Console.ReadLine());
 Console.Write("Введите количество столбцов второй матрицы: ");
 int column2 = int.Parse(Console.ReadLine());
-int[,] firstMartrix = new int[row1, column1];
-int[,] secondMartrix = new int[row2, column2];
-int[,] mult = new int[row1, column2];
-// if (column1!=row2) Console.WriteLine("Произведение матриц не определено: ");
-// else 
-FillArray(firstMartrix, secondMartrix);
-PrintArray(firstMartrix, secondMartrix);
-Console.WriteLine();
-Console.WriteLine("Произведение матриц: ");
-MultiplyMatrix(firstMartrix, secondMartrix, mult);
-PrintMultArray(mult);
+int[,] firstMartrix = GetArray(row1, column1);
+int[,] secondMartrix = GetArray(row2, column2);
+Console.WriteLine("Первая матрица ");
+PrintArray(firstMartrix);
+Console.WriteLine("Вторая матрица ");
+PrintArray(secondMartrix);
+int[,] matrixMult = GetMultArray(firstMartrix, secondMartrix);
+Console.WriteLine("Произведение матриц ");
+PrintArray(matrixMult);
