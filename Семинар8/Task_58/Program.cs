@@ -64,14 +64,18 @@ void PrintMultArray(int[,] mult)
     }
 }
 Console.Write("Введите количество строк первой матрицы: ");
-int m = int.Parse(Console.ReadLine());
-Console.Write("Введите количество столбцов первой матрицы (количество строк второй матрицы): ");
-int n = int.Parse(Console.ReadLine());
-int[,] firstMartrix = new int[m, n];
+int row1 = int.Parse(Console.ReadLine());
+Console.Write("Введите количество столбцов первой матрицы : ");
+int column1 = int.Parse(Console.ReadLine());
+Console.Write("Введите количество строк второй матрицы: ");
+int row2 = int.Parse(Console.ReadLine());
 Console.Write("Введите количество столбцов второй матрицы: ");
-int p = int.Parse(Console.ReadLine());
-int[,] secondMartrix = new int[n, p];
-int[,] mult = new int[m, p];
+int column2 = int.Parse(Console.ReadLine());
+int[,] firstMartrix = new int[row1, column1];
+int[,] secondMartrix = new int[row2, column2];
+int[,] mult = new int[row1, column2];
+// if (column1!=row2) Console.WriteLine("Произведение матриц не определено: ");
+// else 
 FillArray(firstMartrix, secondMartrix);
 PrintArray(firstMartrix, secondMartrix);
 Console.WriteLine();
